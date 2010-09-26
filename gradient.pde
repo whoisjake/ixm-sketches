@@ -10,31 +10,31 @@
 
 u32 shortestDistance;
 
-void setRed( void ) {
+void setRed() {
 	ledOn(BODY_RGB_RED_PIN);
 	ledOff(BODY_RGB_BLUE_PIN);
 	ledOff(BODY_RGB_GREEN_PIN);
 }
 
-void setBlue( void ) {
+void setBlue() {
 	ledOff(BODY_RGB_RED_PIN);
 	ledOn(BODY_RGB_BLUE_PIN);
 	ledOff(BODY_RGB_GREEN_PIN);
 }
 
-void setGreen( void ) {
+void setGreen() {
 	ledOff(BODY_RGB_RED_PIN);
 	ledOff(BODY_RGB_BLUE_PIN);
 	ledOn(BODY_RGB_GREEN_PIN);
 }
 
-void setWhite( void ) {
+void setWhite() {
 	ledOn(BODY_RGB_RED_PIN);
 	ledOn(BODY_RGB_BLUE_PIN);
 	ledOn(BODY_RGB_GREEN_PIN);
 }
 
-void setBlack( void ) {
+void setBlack() {
 	ledOff(BODY_RGB_RED_PIN);
 	ledOff(BODY_RGB_BLUE_PIN);
 	ledOff(BODY_RGB_GREEN_PIN);
@@ -79,7 +79,7 @@ void handleReset( u8 * packet) {
 	branchReset(packetSource(packet));
 }
 
-void stealGradient(  ) {
+void stealGradient() {
 	println("r");
 	delay(500);
 	resetSelf();
