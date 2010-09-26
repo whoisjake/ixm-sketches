@@ -84,7 +84,7 @@ void stealGradient() {
 	delay(500);
 	resetSelf();
 	setRed();
-	branchGradient(0,1);
+	branchGradient(NOT_A_FACE,1);
 }
 
 void setup() {
