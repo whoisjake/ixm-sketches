@@ -98,3 +98,7 @@ void loop() {
 		stealGradient();
 	} 
 }
+
+#define SFB_SKETCH_CREATOR_ID B36_4(j,a,k,e)
+#define SFB_SKETCH_PROGRAM_ID B36_4(g,r,a,d)
+#define SFB_SKETCH_COPYRIGHT_NOTICE "MIT 2010 Jacob Good"
