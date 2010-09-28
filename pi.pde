@@ -45,8 +45,7 @@ void startCalculation() {
 	}
 	
 	float pi = 4.0 * ((float)circleCount/(float)points);
-	facePrintf(NORTH,"From")
-	facePrintf(NORTH,"PI: %f\n",pi);
+	facePrintf(NORTH,"%f\n",pi);
 	ledOn(BODY_RGB_RED_PIN);
 	ledOn(BODY_RGB_BLUE_PIN);
 	ledOn(BODY_RGB_GREEN_PIN);
