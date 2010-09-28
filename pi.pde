@@ -44,7 +44,7 @@ void startCalculation() {
 		}
 	}
 	
-	float pi = 4.0 * ((float)circleCount/(float)points);
+	double pi = 4.0 * ((double)circleCount/(double)points);
 	facePrintf(NORTH,"%f\n",pi);
 	ledOn(BODY_RGB_RED_PIN);
 	ledOn(BODY_RGB_BLUE_PIN);
@@ -56,7 +56,7 @@ void resetSelf(u32 num) {
 }
 
 void setup() {
-	resetSelf(10000);
+	resetSelf(100000);
 }
 
 void loop() {
