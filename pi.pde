@@ -19,34 +19,23 @@
 
 #include <math.h>
 
-void setRed() {
-	ledOn(BODY_RGB_RED_PIN);
-	ledOff(BODY_RGB_BLUE_PIN);
-	ledOff(BODY_RGB_GREEN_PIN);
-}
+#define BLACK 0x00
+#define RED 0x01
+#define GREEN 0x02
+#define BLUE 0x04
+#define WHITE RED | GREEN | BLUE
+#define IS_RED(x) (x & RED)
+#define IS_GREEN(x) (x & GREEN)
+#define IS_BLUE(x) (x & BLUE)
 
-void setBlue() {
-	ledOff(BODY_RGB_RED_PIN);
-	ledOn(BODY_RGB_BLUE_PIN);
-	ledOff(BODY_RGB_GREEN_PIN);
-}
-
-void setGreen() {
-	ledOff(BODY_RGB_RED_PIN);
-	ledOff(BODY_RGB_BLUE_PIN);
-	ledOn(BODY_RGB_GREEN_PIN);
-}
-
-void setWhite() {
-	ledOn(BODY_RGB_RED_PIN);
-	ledOn(BODY_RGB_BLUE_PIN);
-	ledOn(BODY_RGB_GREEN_PIN);
-}
-
-void setBlack() {
+void setCenter(u8 color) {
 	ledOff(BODY_RGB_RED_PIN);
 	ledOff(BODY_RGB_BLUE_PIN);
 	ledOff(BODY_RGB_GREEN_PIN);
+	
+	if (IS_RED(color) != 0) { ledOn(BODY_RGB_RED_PIN); }
+	if (IS_BLUE(color) != 0) { ledOn(BODY_RGB_BLUE_PIN); }
+	if (IS_GREEN(color) != 0) { ledOn(BODY_RGB_GREEN_PIN); }
 }
 
 const u32 RADIUS = 1000;
@@ -69,7 +58,7 @@ bool isPointInCircle(u32 xCoord, u32 yCoord)
 }
 
 void performCalculationStep() {
-	setGreen();
+	setCenter(GREEN);
 	u32 xCoord = random(1,RADIUS);
 	u32 yCoord = random(1,RADIUS);
 	bool inCircle = isPointInCircle(xCoord,yCoord);
@@ -81,7 +70,6 @@ void performCalculationStep() {
 }
 
 void setup() {
-	setBlue();
 }
 
 void loop() {
@@ -92,7 +80,7 @@ void loop() {
 	if (calculating) { performCalculationStep(); }
 	
 	if (finished) {
-		setWhite();
+		setCenter(WHITE);
 		double pi = 4.0 * ((double)pointsInCircle/MAX_POINTS);
 		facePrintf(NORTH,"Calcuated: %f\n",pi);
 		facePrintf(NORTH,"Accuracy: %f%%\n", (((pi/M_PI) * 100.0)) - 100.0);
