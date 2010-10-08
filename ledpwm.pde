@@ -1,4 +1,4 @@
-// Pi approximation
+// PWM LED Double Rainbows
 // (C) 2010 Jacob Good
 // License: MIT (included in LICENSE.txt)
 //
